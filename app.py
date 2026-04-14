@@ -116,7 +116,7 @@ for c in num_cols:
     df[c] = df[c].fillna(df[c].median())
 for c in cat_cols:
     df[c] = df[c].fillna(df[c].mode()[0])
-return df
+    return df
 
 @st.cache_resource
 def train_models(df):
