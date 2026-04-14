@@ -106,7 +106,9 @@ st.markdown("""
 # ─── Data & Model loading ─────────────────────────────────────────────────────
 @st.cache_data
 def load_data():
-    df = pd.read_csv("ARDS_ICU_V2_15000_final_buan305.csv")
+    import os
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+df = pd.read_csv(os.path.join(BASE_DIR, "ARDS_ICU_V2_15000_final_buan305.csv"))
     # Impute missing values
     num_cols = df.select_dtypes(include=[np.number]).columns
     cat_cols = df.select_dtypes(include=["object"]).columns
